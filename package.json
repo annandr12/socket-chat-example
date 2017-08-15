@@ -2,8 +2,22 @@
   "name": "socket-chat-example",
   "version": "0.0.1",
   "description": "my first socket.io app",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "express": "^4.15.2",
     "socket.io": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/annandr12/socket-chat-example"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "socket"
+  ],
+  "license": "MIT"
 }
