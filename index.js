@@ -21,7 +21,6 @@ io.on('connection', (socket) => {
     socket.emit("update", "You have joined the chat.");
     socket.broadcast.emit("update", name + " has joined the chat.")
     io.sockets.emit("update-users", users);
-    console.log(users);
   });
 
   socket.on('chat message', function(msg){
@@ -33,9 +32,11 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', function() {
-    socket.broadcast.emit("update", users[socket.id] + " has left the chat.")
-    delete users[socket.id];
-    io.sockets.emit("update-users", users);
+    if (users[socket.id]) {
+      socket.broadcast.emit("update", users[socket.id] + " has left the chat.")
+      delete users[socket.id];
+      io.sockets.emit("update-users", users);
+    }
   })
 });
 
